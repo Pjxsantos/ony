@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Paulo Jorge Xavier dos Santos">
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Atualização de Plano de Serviço">
+    
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="Nos últimos dois anos, tivemos o prazer de oferecer nossos serviços gratuitamente, com o intuito de proporcionar a melhor experiência possível para você.">
+    
+    <!-- Meta Robots (Permite indexação) -->
+    <meta name="robots" content="index, follow">
+    
+    <title>Atualização de Plano de Serviço</title>
+    <!-- Fonte do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode"></script> <!-- Biblioteca QRCode.js -->
+    <style>
+        /* Reset geral e fontes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 100%); /* Fundo futurista */
+            color: #fff;
+            line-height: 1.6;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alterado de 'center' para 'flex-start' para manter a rolagem */
+            min-height: 100vh;
+            text-align: center;
+            overflow-y: auto; /* Permitir rolagem vertical */
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 900px;
+            margin: 40px;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.75); /* Fundo escuro com transparência */
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px); /* Efeito de desfoque no fundo */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Título */
+        h1 {
+            font-size: 3rem;
+            color: #e6f7ff;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para o título */
+        }
+
+        /* Parágrafos */
+        p {
+            font-size: 1.2rem;
+            color: #d1d1d1;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Seção de preços */
+        .pricing {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Para permitir que os elementos se ajustem em telas pequenas */
+        }
+
+        .pricing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pricing a {
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    color: inherit; /* Herda a cor do texto, para manter a cor do span */
+}
+
+.pricing a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); /* Efeito suave ao passar o mouse */
+}
+
+.pricing span {
+    color: #2e8bff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.pricing span:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+
+
+        /* Campo de mensagem e botão para gerar QR Code */
+        .payment-section {
+            margin-top: 40px;
+            color: #e6f7ff;
+        }
+
+        .payment-section input {
+            padding: 12px;
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 500px;
+            margin: 10px 0;
+            border-radius: 12px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .payment-section input:focus {
+            border: 2px solid #2e8bff;
+            outline: none;
+            box-shadow: 0 2px 12px rgba(46, 139, 255, 0.6);
+        }
+        #particles-js {
+            position: absolute; /* Garante que ocupe toda a tela */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1200px;
+            z-index: -1; /* Coloca as partículas atrás do conteúdo */
+        }
+
+        .generate-btn {
+            padding: 14px 28px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            background-color: #2e8bff;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            background-color: #1f6db7;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .generate-btn:active {
+            transform: translateY(2px);
+        }
+
+        
+        /* Informações de contato */
+        .contact-info {
+            margin-top: 50px;
+            font-weight: 400;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            margin: 10px 0;
+        }
+
+        .contract-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #2e8bff, #0061f2); /* Gradiente para um visual mais moderno */
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombras mais sutis para dar profundidade */
+            transition: all 0.3s ease-in-out; /* Transição suave para todos os efeitos */
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent; /* Borda transparente inicialmente */
+            background-size: 200% auto;
+        }
+
+        .contract-btn:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .contract-btn:hover {
+            background: linear-gradient(135deg, #0061f2, #2e8bff); /* Inverter as cores do gradiente */
+            transform: translateY(-6px); /* Mais acentuado no hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Mais sombra no hover */
+            border-color: #fff; /* Adiciona uma borda ao passar o mouse */
+        }
+
+        .contract-btn:hover:before {
+            transform: translate(-50%, -50%) scale(1); /* Expande o efeito de brilho */
+        }
+
+        .contract-btn:active {
+            transform: translateY(2px); /* Leve depressão no botão */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave no click */
+            background: linear-gradient(135deg, #0061f2, #2e8bff); /* Mantém a cor do gradiente */
+        }
+
+        .contract-btn:focus {
+            outline: none; /* Remove a borda de foco padrão */
+        }
+
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .footer a {
+            color: #2e8bff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Estilo do Botão Flutuante */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-radius: 50%;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), inset 0 -5px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.3s ease-in-out;
+            z-index: 1000;
+            animation: pulse 2s infinite ease-in-out, float 3s infinite ease-in-out, glow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Efeitos ao passar o mouse */
+        .whatsapp-button:hover {
+            transform: scale(1.2) rotate(12deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), inset 0 -10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Efeitos no ícone */
+        .whatsapp-button i {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, text-shadow 0.4s ease;
+        }
+
+        .whatsapp-button:hover i {
+            transform: scale(1.4) rotate(-12deg);
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Animação de Flutuação */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Animação de Pulsação */
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(0.9);
+            }
+        }
+
+        /* Animação de Brilho */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 255, 0, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 40px rgba(0, 255, 0, 0.9), 0 0 60px rgba(0, 255, 0, 0.8);
+            }
+        }
+
+        /* Animação de Entrada */
+        .whatsapp-button.hidden {
+            opacity: 0;
+            transform: translateY(50px) scale(0.8);
+        }
+
+        .whatsapp-button.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .pricing span {
+                font-size: 2rem;
+            }
+
+            .generate-btn {
+                font-size: 1.2rem;
+            }
+
+            .payment-section input {
+                max-width: 100%;
+            }
+
+            .contract-btn {
+                font-size: 1.2rem;
+            }
+
+            .footer {
+                font-size: 0.8rem;
+            }
+
+            .whatsapp-button {
+                width: 80px;
+                height: 80px;
+            }
+
+            .whatsapp-button i {
+                font-size: 3rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <h1>Atualização de Plano de Serviço</h1>
+        <p>Nos últimos dois anos, tivemos o prazer de oferecer nossos serviços gratuitamente, com o intuito de proporcionar a melhor experiência possível para você.</p>
+        <p>Agora, para continuar melhorando nossos recursos e manter a qualidade do serviço, implementamos uma nova política de cobrança. A mensalidade de <strong>R$ 60,00</strong> por mês refere-se à hospedagem da sua página em nosso servidor. Essa cobrança é necessária para garantir a continuidade do serviço, mantendo a infraestrutura de alta qualidade e o suporte dedicado.</p>
+        <p>Entendemos que cada cliente tem suas próprias necessidades. Caso prefira utilizar outro provedor de hospedagem ou tenha alguma dúvida sobre a nova política, entre em contato conosco. Estamos à disposição para ajudá-lo a encontrar a melhor solução para o seu caso.</p>
+        <p>Agradecemos sua compreensão e apoio, e continuamos comprometidos em oferecer a melhor experiência e atendimento.</p>
+
+        <div class="pricing">
+            <p>O novo valor para continuar utilizando o serviço será:</p>
+            <span>R$ 60,00 por mês</span> ou <span>R$ 600,00 ao ano</span>
+        </div>
+
+
+        <div id="qrContainer" class="qr-container"></div>
+
+        <div class="contact-info">
+            <p>Para enviar o comprovante, por favor, encaminhe-o para nosso e-mail ou WhatsApp.
+
+                Se precisar de ajuda ou tiver alguma dúvida, entre em contato conosco:</p>
+            <p><strong>E-mail:</strong> <a href="mailto:admin@px.dev.br">admin@px.dev.br</a></p>
+            <p><strong>Telefone:</strong> <a href="tel:+5581988002057">+55 81 98800-2057</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5581988002057" target="_blank">Clique aqui para WhatsApp</a></p>
+
+            <!-- Botão de contrato -->
+            <a href="contrato.html" class="contract-btn" target="_blank">Leia o Contrato</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 <a href="https://px.dev.br" target="_blank">PX.DEV.BR</a></p>
+        </div>
+    </div>
+    <!-- Botão Flutuante -->
+  <a href="https://wa.me/5581988002057?text=Olá%2C%20preciso%20de%20ajuda!" target="_blank" class="whatsapp-button hidden" id="whatsappButton" title="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Lógica JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const button = document.getElementById("whatsappButton");
+
+      // Exibe o botão suavemente após o carregamento
+      setTimeout(() => {
+        button.classList.remove("hidden");
+        button.classList.add("visible");
+      }, 300);
+
+      // Função para rolar até o botão após 3 segundos (apenas demonstração de destaque)
+      setTimeout(() => {
+        button.scrollIntoView({ behavior: "smooth" });
+      }, 3000);
+    });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+particlesJS("particles-js", {
+particles: {
+number: {
+  value: 120,  // Número de partículas
+  density: {
+    enable: true,
+    value_area: 700  // Aumentando a área para dispersão das partículas
+  }
+},
+color: {
+  value: "#000000"  // Cor mais vibrante para um efeito mais chamativo
+},
+shape: {
+  type: ["circle", "triangle", "polygon"],  // Variedade de formas para um design dinâmico
+  stroke: {
+    width: 0,  // Remover bordas para um visual mais limpo
+    color: "#fff"  // Cor das bordas
+  }
+},
+opacity: {
+  value: 0.8,  // Opacidade mais suave
+  random: true,
+  animation: {
+    enable: true,  // Animação de opacidade
+    speed: 1,  // Velocidade da animação
+    minimumValue: 0.3  // Valor mínimo de opacidade
+  }
+},
+size: {
+  value: 5,  // Tamanho das partículas
+  random: true,
+  animation: {
+    enable: true,  // Animação de tamanho
+    speed: 3,  // Velocidade da animação de tamanho
+    minimumValue: 1  // Tamanho mínimo
+  }
+},
+line_linked: {
+  enable: true,
+  distance: 150,
+  color: "#ffffff",
+  opacity: 0.6,
+  width: 1.5  // Tornando as linhas mais grossas para maior destaque
+},
+move: {
+  enable: true,
+  speed: 2.5,  // Aumento da velocidade para um movimento mais fluido
+  random: true,
+  straight: false,  // Movimento mais orgânico
+  out_mode: "out",  // Melhor gestão do movimento das partículas
+  bounce: true
+}
+},
+interactivity: {
+detect_on: "canvas",
+events: {
+  onhover: {
+    enable: true,
+    mode: "repulse",  // Modificando para um efeito de repulsão no hover
+    parallax: {
+      enable: true,
+      force: 60,
+      smooth: 10
+    }
+  },
+  onclick: {
+    enable: true,
+    mode: "push",
+    push: {
+      particles_nb: 6  // Mais partículas ao clicar
+    }
+  },
+  resize: true
+},
+modes: {
+  grab: {
+    distance: 150,
+    line_linked: {
+      opacity: 1
+    }
+  },
+  push: {
+    particles_nb: 4
+  },
+  repulse: {
+    distance: 100,  // Distância de repulsão
+    duration: 0.4  // Duração do efeito
+  }
+}
+},
+retina_detect: true,  // Detecta dispositivos com tela retina
+background: {
+color: "#000",  // Cor de fundo preta para realçar as partículas
+image: "",
+position: "50% 50%",
+repeat: "no-repeat",
+size: "cover"
+}
+});
+</script>
+
+</body>
+</html>

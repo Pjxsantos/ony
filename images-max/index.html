@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Description -->
+<meta name="description" content="Melhorador Automático de Imagem Profissional, ferramenta online para melhorar automaticamente a qualidade das suas imagens de forma rápida e fácil.">
+
+<!-- Meta Keywords -->
+<meta name="keywords" content="melhorador de imagem, melhoria de imagem, ferramenta online, qualidade de imagem, imagens profissionais">
+
+<!-- Meta Robots (Permite indexação) -->
+<meta name="robots" content="index, follow">
+
+<!-- Meta Author -->
+<meta name="author" content="Paulo Jorge Xavier dos Santos">
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="Melhorador Automático de Imagem Profissional">
+<meta property="og:description" content="Melhore automaticamente suas imagens com nossa ferramenta online. Rápido, fácil e eficiente para profissionais de imagens.">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pjxsantos/paulo-next/refs/heads/main/public/images/paulo.jpg"> <!-- Substitua pela URL da imagem que você deseja usar -->
+<meta property="og:url" content="https://portfolio-pjxsantos.vercel.app/"> <!-- Substitua pelo URL do seu site -->
+<meta property="og:type" content="website">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Melhorador Automático de Imagem Profissional">
+<meta name="twitter:description" content="Melhore suas imagens automaticamente com nossa ferramenta online. Simples e eficaz.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Pjxsantos/paulo-next/refs/heads/main/public/images/paulo.jpg"> <!-- Substitua pela URL da imagem -->
+
+    <title>Melhorador Automático de Imagem Profissional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #1e2a47, #232c57);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            overflow-y: auto; /* Permite a rolagem */
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(28, 42, 74, 0.85);
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #00f7ff;
+        }
+
+        .upload-container {
+            margin-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+            display: flex; /* Centraliza o conteúdo */
+            justify-content: center; /* Alinha horizontalmente no centro */
+            align-items: center; /* Alinha verticalmente no centro */
+            width: 100%; /* Garante que ocupe toda a largura */
+        }
+
+        .upload-area {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            border: 2px dashed #00f7ff;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00f7ff;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area.dragover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        #image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .image-box {
+            width: 100%;
+            max-width: 450px;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px; /* Adiciona espaçamento entre as imagens */
+        }
+
+        .image-box img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6e7f, #d2a1ff);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff6e7f, #ff8a1f);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-box {
+                max-width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .upload-area {
+                height: 200px;
+            }
+        }
+
+        /* Responsividade para telas menores que 500px */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .image-box {
+                padding: 10px;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Melhorador Automático de Imagem Profissional</h1>
+        <div class="upload-container" id="uploadContainer">
+            <div class="upload-area" id="uploadArea">
+                Arraste e solte uma imagem aqui ou clique para selecionar
+            </div>
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        </div>
+
+        <div class="image-container">
+            <div class="image-box" id="originalImageBox" style="display: none;">
+                <h2>Imagem Original</h2>
+                <img id="originalImage" src="" alt="Imagem Original">
+            </div>
+            <div class="image-box" id="improvedImageBox" style="display: none;">
+                <h2>Imagem Melhorada</h2>
+                <img id="improvedImage" src="" alt="Imagem Melhorada">
+            </div>
+        </div>
+
+        <button class="btn" id="autoImproveBtn" disabled>Melhorar Imagem Automaticamente</button>
+        <button class="btn" id="downloadBtn" disabled>Baixar Imagem Melhorada</button>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById("uploadArea");
+        const imageUpload = document.getElementById("imageUpload");
+        const originalImage = document.getElementById("originalImage");
+        const improvedImage = document.getElementById("improvedImage");
+        const autoImproveBtn = document.getElementById("autoImproveBtn");
+        const downloadBtn = document.getElementById("downloadBtn");
+        const originalImageBox = document.getElementById("originalImageBox");
+        const improvedImageBox = document.getElementById("improvedImageBox");
+
+        let currentImageUrl = "";
+
+        // Funções de drag-and-drop
+        uploadArea.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            uploadArea.classList.add("dragover");
+        });
+
+        uploadArea.addEventListener("dragleave", () => uploadArea.classList.remove("dragover"));
+
+        uploadArea.addEventListener("drop", (event) => {
+            event.preventDefault();
+            uploadArea.classList.remove("dragover");
+            const file = event.dataTransfer.files[0];
+            if (file && file.type.startsWith("image")) loadImage(file);
+        });
+
+        uploadArea.addEventListener("click", () => imageUpload.click());
+
+        imageUpload.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith("image")) loadImage(file);
+        });
+
+        function loadImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                currentImageUrl = e.target.result;
+                originalImage.src = currentImageUrl;
+                originalImageBox.style.display = "block";
+                autoImproveBtn.disabled = false;
+                improvedImageBox.style.display = "none";
+            };
+            reader.readAsDataURL(file);
+        }
+
+        autoImproveBtn.addEventListener("click", () => improveImage());
+
+        function improveImage() {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            const img = new Image();
+
+            img.onload = () => {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+
+                // Ajuste de filtros para diminuir o brilho excessivo
+                ctx.globalCompositeOperation = "source-over";
+                ctx.filter = "brightness(1.05) contrast(1.2)"; // Brilho mais suave
+                ctx.drawImage(canvas, 0, 0);
+
+                const improvedDataURL = canvas.toDataURL("image/png");
+
+                improvedImage.src = improvedDataURL;
+                improvedImageBox.style.display = "block";
+                downloadBtn.disabled = false;
+            };
+
+            img.src = currentImageUrl;
+        }
+
+        // Função para gerar nome aleatório para o arquivo
+        function generateRandomFileName() {
+            const timestamp = new Date().getTime();
+            return `imagem_melhorada_${timestamp}.png`;
+        }
+
+        downloadBtn.addEventListener("click", () => {
+            const link = document.createElement("a");
+            link.href = improvedImage.src;
+            link.download = generateRandomFileName();
+            link.click();
+        });
+    </script>
+</body>
+</html>

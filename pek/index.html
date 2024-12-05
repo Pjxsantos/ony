@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Paulo Jorge Xavier dos Santos">
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Criptografador futurista online. Criptografe e descriptografe textos de maneira simples e rápida com um design futurista e animações incríveis.">
+    
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="criptografador, criptografia, descriptografar, texto, online, futurista, tecnologia, design futurista, animação, caesar cipher">
+    
+    <!-- Meta Robots (Permite indexação) -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Criptografador Futurista">
+    <meta property="og:description" content="Criptografador futurista online. Criptografe e descriptografe textos com um design inovador e animações impressionantes.">
+    <meta property="og:image" content="https://example.com/imagem-de-exemplo.jpg">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Criptografador Futurista">
+    <meta name="twitter:description" content="Criptografador futurista online. Criptografe e descriptografe textos com um design inovador e animações impressionantes.">
+    <meta name="twitter:image" content="https://example.com/imagem-de-exemplo.jpg">
+    <meta name="twitter:site" content="@seu_usuario">
+    
+    <title>Criptografador Futurista</title>
+    
+    <!-- Fonte futurista -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Ajuste de altura para garantir que o conteúdo ocupe toda a altura da tela */
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Orbitron', sans-serif;
+            background: #1c1c1c;
+            animation: backgroundAnimation 6s ease-in-out infinite;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Fundo dinâmico com animação de partículas e gradiente */
+        @keyframes backgroundAnimation {
+            0% { background: #1c1c1c; }
+            50% { background: linear-gradient(45deg, #00b3b3, #cc00cc); }
+            100% { background: #1c1c1c; }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #39ff14;
+            text-shadow: 0 0 15px #39ff14, 0 0 25px #39ff14;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 40px #39ff14; }
+            100% { text-shadow: 0 0 25px #ff00ff, 0 0 35px #ff00ff, 0 0 45px #ff00ff; }
+        }
+
+        label, .result h3 {
+            font-size: 1.5em;
+            color: #ff66cc;
+            text-shadow: 0 0 10px #ff66cc;
+            margin-top: 20px;
+        }
+
+        textarea, input[type="number"] {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 10px;
+            padding: 15px;
+            font-size: 1.2em;
+            background-color: #222;
+            color: #fff;
+            border: 2px solid #39ff14;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #39ff14;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        textarea:focus, input[type="number"]:focus {
+            border-color: #ff66cc;
+            box-shadow: 0 0 20px #ff66cc;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #39ff14;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 0 20px #39ff14;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff66cc;
+            box-shadow: 0 0 25px #ff66cc;
+            transform: scale(1.1);
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #ff66cc;
+            text-shadow: 0 0 10px #ff66cc;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        #resultado {
+            font-size: 1.5em;
+            color: #39ff14;
+            text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+        }
+
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            label, .result h3 {
+                font-size: 1.2em;
+            }
+
+            textarea {
+                width: 90%;
+                font-size: 1em;
+            }
+
+            input[type="number"] {
+                width: 80%;
+                font-size: 1em;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            label, .result h3 {
+                font-size: 1.1em;
+            }
+
+            textarea {
+                width: 95%;
+                font-size: 1em;
+            }
+
+            input[type="number"] {
+                width: 70%;
+                font-size: 1em;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Criptografador Futurista</h1>
+
+    <label for="texto">Texto:</label>
+    <textarea id="texto" placeholder="Digite o texto para criptografar ou descriptografar"></textarea>
+
+    <label for="deslocamento">Deslocamento (número):</label>
+    <input type="number" id="deslocamento" value="3" />
+
+    <div>
+        <button onclick="criptografar()">Criptografar</button>
+        <button onclick="descriptografar()">Descriptografar</button>
+    </div>
+
+    <div class="result">
+        <h3>Resultado:</h3>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        // Função para criptografar
+        function criptografar() {
+            const texto = document.getElementById("texto").value;
+            const deslocamento = parseInt(document.getElementById("deslocamento").value);
+            let resultado = "";
+
+            for (let i = 0; i < texto.length; i++) {
+                let char = texto[i];
+                if (char.match(/[a-zA-Z]/)) { // Verifica se é uma letra
+                    let base = char === char.toUpperCase() ? 65 : 97;
+                    resultado += String.fromCharCode((char.charCodeAt(0) - base + deslocamento) % 26 + base);
+                } else {
+                    resultado += char; // Não altera caracteres não alfabéticos
+                }
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+
+        // Função para descriptografar
+        function descriptografar() {
+            const texto = document.getElementById("texto").value;
+            const deslocamento = parseInt(document.getElementById("deslocamento").value);
+            let resultado = "";
+
+            for (let i = 0; i < texto.length; i++) {
+                let char = texto[i];
+                if (char.match(/[a-zA-Z]/)) { // Verifica se é uma letra
+                    let base = char === char.toUpperCase() ? 65 : 97;
+                    resultado += String.fromCharCode((char.charCodeAt(0) - base - deslocamento + 26) % 26 + base);
+                } else {
+                    resultado += char; // Não altera caracteres não alfabéticos
+                }
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Erro 404 - Buraco Negro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle, #000, #1a1a1a);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6666;
+            text-shadow: 0 0 15px #ff6666, 0 0 30px #ffaaaa;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        h1 span {
+            font-size: 3.5rem;
+            color: #ffffff;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #66ccff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 204, 255, 0.5);
+            z-index: 2;
+        }
+
+        .back-home:hover {
+            transform: scale(1.1);
+            background: #3399ff;
+            color: white;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Estilo para a área de texto */
+        .text-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6); /* Transparente para melhorar a leitura do texto */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h1 span {
+                font-size: 2.5rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .back-home {
+                padding: 8px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h1>Ops... Erro <span>404</span></h1>
+        <p class="description">Você foi sugado para um buraco negro digital. Não se preocupe, você pode voltar ao início.</p>
+        <a href="/" class="back-home">Voltar ao Início</a>
+    </div>
+    <canvas id="blackhole"></canvas>
+    <script>
+        const canvas = document.getElementById('blackhole');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const blackhole = { x: canvas.width / 2, y: canvas.height / 2, radius: 120, angle: 0 };
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 4;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+            }
+
+            update() {
+                const dx = blackhole.x - this.x;
+                const dy = blackhole.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < blackhole.radius) {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                } else {
+                    const force = 1 / distance;
+                    this.speedX += dx * force * 0.05;
+                    this.speedY += dy * force * 0.05;
+                }
+
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random()})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 150; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+
+        function drawBlackhole() {
+            ctx.save();
+            ctx.translate(blackhole.x, blackhole.y);
+            ctx.rotate(blackhole.angle);
+            ctx.beginPath();
+            ctx.arc(0, 0, blackhole.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'black';
+            ctx.shadowColor = '#ff0000';
+            ctx.shadowBlur = 25;
+            ctx.fill();
+            ctx.restore();
+
+            blackhole.angle += 0.01;
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle) => {
+                particle.update();
+                particle.draw();
+            });
+
+            drawBlackhole();
+
+            requestAnimationFrame(animate);
+        }
+
+        canvas.addEventListener('mousemove', (e) => {
+            blackhole.x = e.clientX;
+            blackhole.y = e.clientY;
+        });
+
+        initParticles();
+        animate();
+    </script>
+</body>
+</html>
