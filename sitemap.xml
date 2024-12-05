@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Página principal -->
+  <url>
+    <loc>https://portfolio-pjxsantos.vercel.app/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Outras páginas -->
+  <url>
+    <loc>https://portfolio-pjxsantos.vercel.app/format-css/index.html</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://portfolio-pjxsantos.vercel.app/pek/index.html</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Página que pode ser indexada rapidamente -->
+  <url>
+    <loc>https://portfolio-pjxsantos.vercel.app/images-max/index.html</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

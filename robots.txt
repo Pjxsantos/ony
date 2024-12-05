@@ -1,0 +1,20 @@
+# Bloqueia o acesso ao diretório /nogooglebot/ apenas para o Googlebot
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+# Permite o acesso completo a todos os outros bots, mas sem impedir o rastreamento de recursos essenciais como imagens, JavaScript e CSS
+User-agent: *
+Disallow: /nogooglebot/
+Allow: / (permite rastrear todas as páginas do site)
+Disallow: /private/ (se houver diretórios privados que não devem ser rastreados)
+
+# Permite rastreamento de arquivos importantes (caso necessário)
+Allow: /js/
+Allow: /css/
+Allow: /images/
+
+# Instruções para o Googlebot e outros bots sobre o sitemap
+Sitemap: https://portfolio-pjxsantos.vercel.app/sitemap.xml
+
+# Evita sobrecarga nos rastreadores e melhora a eficiência
+Crawl-delay: 10  # Define um tempo de atraso entre as requisições dos bots para não sobrecarregar o servidor (opcional, dependendo do tráfego)
