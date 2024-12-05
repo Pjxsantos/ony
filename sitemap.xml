@@ -3,7 +3,7 @@
   
   <!-- Página principal -->
   <url>
-    <loc>https://portfolio-pjxsantos.vercel.app/</loc>
+    <loc>https://px.dev.br/</loc>
     <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -11,14 +11,14 @@
 
   <!-- Outras páginas -->
   <url>
-    <loc>https://portfolio-pjxsantos.vercel.app/format-css/index.html</loc>
+    <loc>https://px.dev.br/format-css/index.html</loc>
     <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://portfolio-pjxsantos.vercel.app/pek/index.html</loc>
+    <loc>https://px.dev.br/pek/index.html</loc>
     <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -26,10 +26,19 @@
 
   <!-- Página que pode ser indexada rapidamente -->
   <url>
-    <loc>https://portfolio-pjxsantos.vercel.app/images-max/index.html</loc>
+    <loc>https://px.dev.br/images-max/index.html</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Nova página adicionada -->
+  <url>
+    <loc>https://px.dev.br/Plano/index.html</loc>
     <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
 </urlset>
+
